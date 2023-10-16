@@ -1,0 +1,20 @@
+{
+	"packageDirectories": [
+		{
+			"path": "src/temp",
+			"default": true
+		},
+		{
+			"path": "src/unlocked",
+			"default": false
+		},
+		{
+			"path": "src/managed",
+			"default": false
+		}
+	],
+	"name": "PackageMetadataTypes",
+	"namespace": "packocz",
+	"sfdcLoginUrl": "https://login.salesforce.com",
+	"sourceApiVersion": "56.0"
+}
