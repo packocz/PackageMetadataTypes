@@ -6,15 +6,27 @@
 		},
 		{
 			"path": "src/unlocked",
-			"default": false
+			"default": false,
+			"package": "UnlockedMetadata",
+			"versionName": "ver 0.1",
+			"versionNumber": "0.1.0.NEXT",
+			"versionDescription": "testing behaviour of Custom Metadata and value sets"
 		},
 		{
 			"path": "src/managed",
-			"default": false
+			"default": false,
+			"package": "ManagedMetadata",
+			"versionName": "ver 0.1",
+			"versionNumber": "0.1.0.NEXT",
+			"versionDescription": "testing behaviour of Custom Metadata and value sets"
 		}
 	],
 	"name": "PackageMetadataTypes",
 	"namespace": "packocz",
 	"sfdcLoginUrl": "https://login.salesforce.com",
-	"sourceApiVersion": "56.0"
+	"sourceApiVersion": "56.0",
+	"packageAliases": {
+		"UnlockedMetadata": "0Ho08000000TN4dCAG",
+		"ManagedMetadata": "0Ho08000000TN4iCAG"
+	}
 }
