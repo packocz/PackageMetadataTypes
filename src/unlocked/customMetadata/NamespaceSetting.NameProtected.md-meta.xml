@@ -4,14 +4,14 @@
     <protected>true</protected>
     <values>
         <field>PrivateValue__c</field>
-        <value xsi:type="xsd:string">Private</value>
+        <value xsi:type="xsd:string">PrivateNew</value>
     </values>
     <values>
         <field>PublicValue__c</field>
-        <value xsi:type="xsd:string">Public</value>
+        <value xsi:type="xsd:string">PublicNew</value>
     </values>
     <values>
         <field>RestrictedValue__c</field>
-        <value xsi:type="xsd:string">Restricted</value>
+        <value xsi:type="xsd:string">RestrictedNew</value>
     </values>
 </CustomMetadata>

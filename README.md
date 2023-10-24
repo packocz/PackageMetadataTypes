@@ -29,12 +29,17 @@
    4. Managed Namespace - can only edit Publi value, even delete
    5. all 4 can create new
    6. Locked Metadata cannot be seen for either package
-3. Update / New Version
-4. Upgrade
+4. Upgrade with same values
+   1. Unlocked - 04t08000000UJSZAA4
+   2. Managed - 04t08000000UJStAAO
 5. See result
+   1. Unlocked - all reverted back to package version
+6. Upgrade with new values
+   1. Managed - cannot change metadata record values of previously released version
+   2. Unlocked
 
 ## Value Set Behaviour
-### Setup
+### Test
 1. Install first versions
    1.  Unlocked - 04t08000000HiilAAC
    2.  Managed - 04t08000000Hij5AAC
@@ -43,5 +48,17 @@
    2. Delete 1 value
    3. Create new value
 3. Install new version (with same original values)
-4. Upgrade
-5. See result
+   1. Unlocked - 04t08000000UJSZAA4 - Versioned Values are re-instated, Manual Values are not touched
+   2. Managed - 04t08000000UJStAAO - Versioned Values are not touched even though they don't match anymore, Manual Values are not touched
+4. Change both valuesets
+   1. Deactivate 1 value
+   2. Delete 1 value
+   3. Create new value
+5. Install new Version (with new and changed values)
+   1. 
+
+## Custom Field Moving Between Packages
+### Test
+1. Install First Version - 04t08000000UJSeAAO (fields created)
+2. Install Update to First - 04t08000000UJTDAA4 (removes fields from package, marks deprecated in the org)
+3. Install New package - 04t08000000UJT3AAO (assumes the field into the new package)
