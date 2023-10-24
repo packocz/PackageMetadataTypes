@@ -8,17 +8,35 @@
 			"path": "src/unlocked",
 			"default": false,
 			"package": "UnlockedMetadata",
-			"versionName": "ver 0.1",
-			"versionNumber": "0.1.0.NEXT",
+			"versionName": "ver 0.2",
+			"versionNumber": "0.2.0.NEXT",
 			"versionDescription": "testing behaviour of Custom Metadata and value sets"
 		},
 		{
 			"path": "src/managed",
 			"default": false,
 			"package": "ManagedMetadata",
+			"versionName": "ver 0.2",
+			"versionNumber": "0.2.0.NEXT",
+			"versionDescription": "testing behaviour of Custom Metadata and value sets"
+		},
+		{
+			"path": "src/consumer",
+			"default": false,
+			"package": "UnlockedConsumer",
 			"versionName": "ver 0.1",
 			"versionNumber": "0.1.0.NEXT",
-			"versionDescription": "testing behaviour of Custom Metadata and value sets"
+			"versionDescription": "",
+			"dependencies": [
+				{
+					"package": "UnlockedMetadata",
+					"versionNumber": "0.2.0.LATEST"
+				},
+				{
+					"package": "ManagedMetadata",
+					"versionNumber": "0.2.0.LATEST"
+				}
+			]
 		}
 	],
 	"name": "PackageMetadataTypes",
@@ -27,6 +45,7 @@
 	"sourceApiVersion": "56.0",
 	"packageAliases": {
 		"UnlockedMetadata": "0Ho08000000TN4dCAG",
-		"ManagedMetadata": "0Ho08000000TN4iCAG"
+		"ManagedMetadata": "0Ho08000000TN4iCAG",
+		"UnlockedConsumer": "0Ho08000000PAuxCAG"
 	}
 }
