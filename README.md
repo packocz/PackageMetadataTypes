@@ -42,7 +42,7 @@
 ### Test
 1. Install first versions
    1.  Unlocked - 04t08000000HiilAAC
-   2.  Managed - 04t08000000Hij5AAC
+   2.  Managed - 04t08000000UJSUAA4
 2. Change both valuesets
    1. Deactivate 1 value
    2. Delete 1 value
@@ -62,3 +62,6 @@
 1. Install First Version - 04t08000000UJSeAAO (fields created)
 2. Install Update to First - 04t08000000UJTDAA4 (removes fields from package, marks deprecated in the org)
 3. Install New package - 04t08000000UJT3AAO (assumes the field into the new package)
+### Test Alt
+1. Install First Version - 04t08000000UJSeAAO (fields created)
+3. Install New package (skip step 2 from previous) - 04t08000000UJT3AAO (Fail! Cannot assume a component part of another package)
