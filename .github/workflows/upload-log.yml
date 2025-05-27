@@ -35,6 +35,10 @@ jobs:
               run: |
                   sf org list
                   sf project deploy start --source-dir src/managed --target-org devhub --dry-run
+            
+            - name: Set log file path
+              if: success() || failure()
+              run: echo "LOG_PATH=$HOME/.sf/sf-$(date +'%Y-%m-%d').log" >> $GITHUB_ENV
 
             - name: Upload CLI Logs
               if: success() || failure()
@@ -42,7 +46,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: "sf-lci-logs-${{ github.run_id }}-${{ github.run_attempt }}"
-                  path: "$HOME/.sf/sf-$(date +'%Y-%m-%d').log"
+                  path: "${{ env.LOG_PATH }}"
                   if-no-files-found: ignore
                   retention-days: 14
                   overwrite: true
