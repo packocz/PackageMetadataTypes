@@ -28,6 +28,9 @@ jobs:
               run: |
                   npm i -g @salesforce/cli @flxbl-io/sfp && npm install
 
+            - name: Set CLI Log Level
+              run: export SF_LOG_LEVEL=trace
+
             - name: Authenticate Dev Hub
               run: sf org login sfdx-url -a devhub -u <<<${DEV_HUB}
 
