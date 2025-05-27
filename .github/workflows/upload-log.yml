@@ -1,0 +1,49 @@
+name: Run Workflow
+
+on:
+    workflow_dispatch:
+
+env:
+    SF_DISABLE_DNS_CHECK: true
+    SF_DISABLE_TELEMETRY: true
+    DEV_HUB: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
+
+jobs:
+    upload-logs:
+        name: Upload Logs
+        runs-on: 'ubuntu-latest'
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ vars.NODE_VERSION }}
+                  cache: npm
+
+            - name: Install tools
+              run: |
+                  npm i -g @salesforce/cli @flxbl-io/sfp && npm install
+
+            - name: Authenticate Dev Hub
+              run: sf org login sfdx-url -a devhub -u <<<${DEV_HUB}
+
+            - name: Run something with CLI
+              run: |
+                  sf org list
+                  sf project deploy start --source-dir src/managed --target-org devhub --dry-run
+
+            - name: Upload CLI Logs
+              if: success() || failure()
+              continue-on-error: true
+              uses: actions/upload-artifact@v4
+              with:
+                  name: "sf-lci-logs-${{ github.run_id }}-${{ github.run_attempt }}"
+                  path: "$HOME/.sf/sf-$(date +'%Y-%m-%d').log"
+                  if-no-files-found: ignore
+                  retention-days: 14
+                  overwrite: true
+                  include-hidden-files: true
