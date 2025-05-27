@@ -4,10 +4,10 @@ on:
     workflow_dispatch:
 
 env:
-    SF_DISABLE_DNS_CHECK: true
-    SF_DISABLE_TELEMETRY: true
-    DEV_HUB: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
-    SF_LOG_LEVEL: "trace"
+    SF_DISABLE_DNS_CHECK: ${{ vars.SF_DISABLE_DNS_CHECK }}
+    SF_DISABLE_TELEMETRY: ${{ vars.SF_DISABLE_TELEMETRY }}
+    DEV_HUB: ${{ vars.DEV_HUB }}
+    SF_LOG_LEVEL: ${{ vars.SF_LOG_LEVEL }}
 
 jobs:
     upload-logs:
