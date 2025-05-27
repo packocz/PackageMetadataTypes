@@ -6,7 +6,7 @@ on:
 env:
     SF_DISABLE_DNS_CHECK: ${{ vars.SF_DISABLE_DNS_CHECK }}
     SF_DISABLE_TELEMETRY: ${{ vars.SF_DISABLE_TELEMETRY }}
-    DEV_HUB: ${{ vars.DEV_HUB }}
+    DEV_HUB: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
     SF_LOG_LEVEL: ${{ vars.SF_LOG_LEVEL }}
 
 jobs:
